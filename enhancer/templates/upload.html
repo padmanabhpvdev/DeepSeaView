@@ -1,0 +1,166 @@
+<nav class="navbar sticky-top navbar-dark bg-dark text-white">
+  <div class="container-fluid">
+    <a href="/" class="navbar-brand"><i class="fas fa-swimmer"></i> DeepSeaView</a>
+  </div>
+</nav>
+{% extends 'index.html' %}
+{% block body %}
+<div class="container text-white">
+  <h2>Start Uploading your File... </h2><br>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="">
+      <input type="file" name="file" class="form-control form-control-sm" aria-label="Upload" id="fileInput" placeholder="File" aria-describedby="inputGroupPrepend" required>
+    </div><br>
+    <!-- <button type="reset" class="btn btn-danger">Reset <i class="fas fa-rotate-right"></i></button> -->
+    <button type="submit" class="btn btn-primary">Generate <i class="fas fa-cogs"></i></button>
+  </form>
+</div><br><br><br>
+<h2 class="text-white">Results</h2><br>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-1 g-4 text-white">
+    <div class="col">
+      <div class="card h-100 bg-dark" style="box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);">
+        <img src="http://127.0.0.1:8000/{{img_loc}}" alt="Original Image" class="card-img">
+        <div class="card-body">
+          <h5 class="card-title">Original Image</h5>
+          <div class="card-footer">
+            {% if img_loc %}
+            <a href="http://127.0.0.1:8000/{{img_loc}}" class="btn btn-secondary popup-image">Preview <i class="fa-solid fa-eye"></i></a>
+            <a href="http://127.0.0.1:8000/{{img_loc}}" class="btn btn-success" download="true">Download <i class="fa-solid fa-download"></i></a>
+            {% else %}
+            <button class="btn btn-secondary" disabled>Preview <i class="fa-solid fa-eye"></i></button>
+            <button class="btn btn-success" disabled>Download <i class="fa-solid fa-download"></i></button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 bg-dark" style="box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);">
+        <img src="http://127.0.0.1:8000/{{white_loc}}" alt="" class="card-img">
+        <div class="card-body">
+          <h5 class="card-title">White Balanced</h5>
+          <div class="card-footer">
+            {% if white_loc %}
+            <a href="http://127.0.0.1:8000/{{white_loc}}" class="btn btn-secondary popup-image">Preview <i class="fa-solid fa-eye"></i></a>
+            <a href="http://127.0.0.1:8000/{{white_loc}}" class="btn btn-success" download="true">Download <i class="fa-solid fa-download"></i></a>
+            {% else %}
+            <button class="btn btn-secondary" disabled>Preview <i class="fa-solid fa-eye"></i></button>
+            <button class="btn btn-success" disabled>Download <i class="fa-solid fa-download"></i></button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 bg-dark" style="box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);">
+        <img src="http://127.0.0.1:8000/{{nor_loc}}" alt="" class="card-img">
+        <div class="card-body">
+          <h5 class="card-title">Normalized</h5>
+          <div class="card-footer">
+            {% if nor_loc %}
+            <a href="http://127.0.0.1:8000/{{nor_loc}}" class="btn btn-secondary popup-image">Preview <i class="fa-solid fa-eye"></i></a>
+            <a href="http://127.0.0.1:8000/{{nor_loc}}" class="btn btn-success" download="true">Download <i class="fa-solid fa-download"></i></a>
+            {% else %}
+            <button class="btn btn-secondary" disabled>Preview <i class="fa-solid fa-eye"></i></button>
+            <button class="btn btn-success" disabled>Download <i class="fa-solid fa-download"></i></button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 bg-dark" style="box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);">
+        <img src="http://127.0.0.1:8000/{{med_loc}}" alt="" class="card-img">
+        <div class="card-body">
+          <h5 class="card-title">Median Filtered</h5>
+          <div class="card-footer">
+            {% if med_loc %}
+            <a href="http://127.0.0.1:8000/{{med_loc}}" class="btn btn-secondary popup-image">Preview <i class="fa-solid fa-eye"></i></a>
+            <a href="http://127.0.0.1:8000/{{med_loc}}" class="btn btn-success" download="true">Download <i class="fa-solid fa-download"></i></a>
+            {% else %}
+            <button class="btn btn-secondary" disabled>Preview <i class="fa-solid fa-eye"></i></button>
+            <button class="btn btn-success" disabled>Download <i class="fa-solid fa-download"></i></button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 bg-dark bg-dark" style="box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);">
+        <img src="http://127.0.0.1:8000/{{lace_loc}}" alt="" class="card-img">
+        <div class="card-body">
+          <h5 class="card-title">LACE</h5>
+          <div class="card-footer">
+            {% if lace_loc %}
+            <a href="http://127.0.0.1:8000/{{lace_loc}}" class="btn btn-secondary popup-image">Preview <i class="fa-solid fa-eye"></i></a>
+            <a href="http://127.0.0.1:8000/{{lace_loc}}" class="btn btn-success" download="true">Download <i class="fa-solid fa-download"></i></a>
+            {% else %}
+            <button class="btn btn-secondary" disabled>Preview <i class="fa-solid fa-eye"></i></button>
+            <button class="btn btn-success" disabled>Download <i class="fa-solid fa-download"></i></button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 bg-dark" style="box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);">
+        <img src="http://127.0.0.1:8000/{{enhance_loc}}" alt="Enhanced Image" class="card-img">
+        <div class="card-body">
+          <h5 class="card-title">Enhanced Image</h5>
+          <div class="card-footer">
+            {% if enhance_loc %}
+            <a href="http://127.0.0.1:8000/{{enhance_loc}}" class="btn btn-secondary popup-image">Preview <i class="fa-solid fa-eye"></i></a>
+            <a href="http://127.0.0.1:8000/{{enhance_loc}}" class="btn btn-success" download="true">Download <i class="fa-solid fa-download"></i></a>
+            {% else %}
+            <button class="btn btn-secondary" disabled>Preview <i class="fa-solid fa-eye"></i></button>
+            <button class="btn btn-success" disabled>Download <i class="fa-solid fa-download"></i></button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <form method="post" enctype="multipart/form-data">{% csrf_token %}
+  <div class="card shadow">
+    <center>
+    <h5 class="card-header">Check File</h5>
+    <div class="card-body">
+      <h5 class="card-title">Upload Your File</h5>
+   
+      <div class="col-md-8 mb-6">
+        <label for="validationCustomUsername">File</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend">@</span>
+          </div>
+          <input type="file" class="form-control" name="file" placeholder="File" aria-describedby="inputGroupPrepend" required>
+          <div class="invalid-feedback">
+            Please choose a IMAGE.
+          
+        </div>
+      </div>
+      <br><br>
+  <button class="btn btn-primary" type="submit">Upload</button>
+   
+   <h3 class="card-text">{{res}}</h3> </center>
+   <img src="http://127.0.0.1:8000/{{img_loc}}"> </img>
+   <h1>White Balanced</h1>
+   <img src="http://127.0.0.1:8000/{{white_loc}}"> </img>
+   <h1>Normalized</h1>
+   <img src="http://127.0.0.1:8000/{{nor_loc}}"> </img>
+   <h1>median Filtered</h1>
+   <img src="http://127.0.0.1:8000/{{med_loc}}"> </img>
+   <h1>LACE </h1>
+   <img src="http://127.0.0.1:8000/{{lace_loc}}"> </img>
+   <h1>Enhanced Image </h1>
+   <img src="http://127.0.0.1:8000/{{enhance_loc}}"> </img>
+  </div>
+  </div>
+  
+  </div>
+  </form> -->
+  {% endblock %}

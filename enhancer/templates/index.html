@@ -1,0 +1,287 @@
+<!-- 
+ UI created by Padmanabh P V
+ https://padmanabhpvdev.github.io 
+ -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% load static %}
+    <link rel="icon" href="{% static 'images/favicontr.png' %}">
+
+    <title>DeepSeaView</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/album.css' %}" rel="stylesheet">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  </head>
+  <style>
+    .scroll-text {
+    transition: color 0.5s ease-in-out;
+  }
+    .shadow-effect {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  border-radius: 0;
+  transition: transform .4s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.shadow-effect:hover {
+  transform: scale(1.05);
+}
+.red:hover{
+  box-shadow: 0 0 35px rgba(243, 83, 83, 0.836);
+}
+.yellow:hover{
+  box-shadow: 0 0 35px rgba(255, 214, 81, 0.849);
+}
+.green:hover{
+  box-shadow: 0 0 35px rgba(165, 255, 81, 0.836);
+}
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s, transform 0.4s;
+}
+#backToTop:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+  </style>
+
+  <body class="bg-dark">
+
+    <main role="main">
+
+      <!-- <nav class="navbar sticky-top navbar-dark bg-dark text-white">
+        <div class="container-fluid">
+          <a href="" class="navbar-brand"><i class="fas fa-swimmer"></i></a>
+          <div class="d-flex">
+            <a href="" class="btn btn-primary">Get Started</a>
+          </div>
+        </div>
+      </nav> -->
+      <button id="backToTop" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+      <section class="jumbotron bg-dark text-center d-flex flex-column justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="container bg-dark">{% block body %}
+          <h1 class="jumbotron-heading text-white" data-aos="fade-up" data-aos-duration="3000" data-aos-delay="100"><i class="fas fa-swimmer"></i> DeepSeaView</h1><br>
+          <p class="lead text-white" data-aos="fade-up" data-aos-delay="300" data-aos-duration="3000">An advanced image enhancement system designed to improve the clarity and quality of underwater visuals using Discrete Cosine Transform</p><br>
+          <p>
+            <a href="{% url 'upload' %}" class="btn btn-primary my-2" data-aos="fade-up" data-aos-duration="3000" data-aos-delay="500">Get Started <i class="fas fa-rocket"></i></a>
+          </p>
+        </div>
+      </section>
+      <p class="text-white text-center scroll-text" data-aos="fade-up" data-aos-duration="3000" data-aos-delay="500" id="scrollText">Scroll for more <i class="fas fa-arrow-down"></i></p><br>
+      <div class="container text-white" style="min-height: 70vh;">
+        <div class="row align-items-center">
+          <div class="col-md-6 d-flex justify-content-center" data-aos="fade-up" data-aos-duration="3000" data-aos-delay="100">
+            <img src="{% static 'images/preview.jpg' %}" alt="" class="img-fluid rounded" style="max-width: 70%; height: auto;">
+          </div>
+          <div class="col-md-6" data-aos="fade-up" data-aos-duration="3000" data-aos-delay="300">
+            <div>
+              <h2 class="text-center">An Overview <i class="fas fa-scroll fa-fade"></i></h2>
+              <p class="text-justify">Underwater images often suffer from poor visibility due to light absorption, scattering and color distortion. <strong class="text-info">DeepSeaView</strong> is an advanced image enhancement system designed to improve the clarity and quality of underwater visuals using <a href="https://en.wikipedia.org/wiki/Discrete_cosine_transform" target="_blank" class="link-primary fw-bolder">Discrete Cosine Transform (DCT)</a>. By leveraging the frequency-domain properties of DCT, the system effectively reduces noise, enhances contrast and restores color balance in submerged environments. This approach enables better feature extraction and visibility, making it ideal for marine research, underwater photography and robotic vision applications. DeepSeaView enhances image details while preserving natural textures, ensuring a more accurate and visually appealing representation of underwater scenes.</p>
+            </div>
+          </div>
+        </div>
+      </div><br>
+      <div class="container" style="min-height:60vh;">
+        <h2 class="text-white text-center" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">How to do ? <i class="fas fa-tools fa-shake"></i></h2><br><br>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
+            <div class="card h-100 bg-dark text-white shadow-effect red">
+              <div class="card-body">
+                <h3 class="card-title text-center">Get <i class="fas fa-play-circle text-danger"></i></h3>
+                <div class="card-footer">
+                  <p class="card-text">Click on the 'Get Started' button to visit the upload page.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
+            <div class="card h-100 bg-dark text-white shadow-effect yellow">
+              <div class="card-body">
+                <h3 class="card-title text-center">Set <i class="fas fa-upload text-warning"></i></h3>
+                <div class="card-footer">
+                  <p class="card-text">Upload image files from your desktop and click on the 'Generate' button.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="700">
+            <div class="card h-100 bg-dark text-white shadow-effect green">
+              <div class="card-body">
+                <h3 class="card-title text-center">Go <i class="fas fa-images text-success"></i></h3>
+                <div class="card-footer">
+                  <p class="card-text">The enhanced output files will be displayed for you.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container" style="min-height:85vh;">
+        <div class="row">
+          <div class="col-md-6 justify-content-center" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="0">
+            <img src="{% static 'images/working.png' %}" alt="" class="img-fluid rounded" style="max-width: 70%; height: auto;margin-top: 30%;">
+          </div>
+          <div class="col-md-6">
+            <h2 class="text-white text-center" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="100">How it works ? <i class="fas fa-gear fa-spin"></i></h2><br>
+            <p class="text-white text-justify" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">Underwater image enhancement using the <strong class="text-info">Discrete Cosine Transform (DCT)</strong> involves a series of processing steps to restore clarity, contrast and color in degraded underwater images. The process begins with <strong class="text-info">White Balancing</strong>, which corrects the unnatural color cast caused by light absorption underwater, restoring a more natural color tone. Next, <strong class="text-info">Normalization</strong> is applied to scale pixel intensity values, ensuring better brightness and contrast distribution. To remove unwanted noise and preserve important details, a <strong class="text-info">Median Filter</strong> is used, effectively smoothing the image while maintaining edges. Further improvement is achieved through <strong class="text-info">Luminance Adaptive Contrast Enhancement (LACE)</strong>, which dynamically adjusts brightness and contrast based on local luminance variations, enhancing visibility in darker areas without overexposure. Finally, the Discrete Cosine Transform (DCT) is utilized to analyze frequency components of the image, allowing selective enhancement of essential features while reducing distortions. After processing, the Inverse DCT (IDCT) reconstructs the enhanced image, delivering a clearer, more visually appealing underwater scene.</p>
+          </div>
+        </div>
+      </div><br>
+      <div class="container" style="min-height:85vh;">
+        <h2 class="text-center text-white" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">Why Discrete Cosine Transform (DCT) ? <i class="fas fa-wave-square fa-beat"></i></h2><br>
+        <div class="container">
+          <p class="text-white text-justify" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="100">The Discrete Cosine Transform (DCT) is an effective technique for enhancing these images because it processes them in the frequency domain, allowing for better restoration and visibility improvements.
+          </p><br>
+          <div class="row text-white">
+            <div class="col" style="border-right:2px solid rgba(255, 255, 255, 0.603);">
+              <p class=" text-justify" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="100">
+                <strong class="text-info">Frequency-Domain Processing</strong>: DCT converts the image into frequency components, helping separate important details from noise, making enhancement more effective.</p>
+            </div>
+            <div class="col" style="border-right:2px solid rgba(255, 255, 255, 0.603);">
+              <p class=" text-justify" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
+                <strong class="text-info">Color Correction & Contrast Enhancement</strong>: Underwater images lose red light and appear bluish or greenish. DCT helps restore balanced colors and improves contrast.</p>
+            </div>
+            <div class="col">
+              <p class=" text-justify" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
+                <strong class="text-info">Noise Reduction</strong>: By filtering high-frequency components, DCT removes unwanted distortions and enhances clarity.</p>
+            </div>
+          </div><br>
+          <div class="row text-white">
+            <div class="col" style="border-right:2px solid rgba(255, 255, 255, 0.603);">
+              <p class=" text-justify" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="100">
+                <strong class="text-info">Edge & Detail Preservation</strong>: Unlike traditional smoothing methods, DCT enhances image details while reducing artifacts, ensuring better object recognition.</p>
+            </div>
+            <div class="col">
+              <p class=" text-justify" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
+                <strong class="text-info">Efficient Computation</strong>: DCT is widely used in image processing applications like JPEG compression, making it computationally efficient for real-time enhancement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container" style="min-height:70vh;">
+        <h2 class="text-center text-white" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="100">Our Team <i class="fas fa-users fa-bounce"></i></h2><br><br>
+        <div class="row row-cols-1 row-cols-md-4 g-4 text-white">
+          <div class="col">
+            <div class="card h-100 bg-dark shadow-effect" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="100">
+              <div class="card-body">
+                <h5 class="card-title">Ajal K J</h5>
+                <p class="card-text text-muted">32022896003</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 bg-dark shadow-effect" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
+              <div class="card-body">
+                <h5 class="card-title">Padmanabh P V</h5>
+                <p class="card-text text-muted">32022896014</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 bg-dark shadow-effect" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
+              <div class="card-body">
+                <h5 class="card-title">Sharon Johnson</h5>
+                <p class="card-text text-muted">32022896017</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 bg-dark shadow-effect" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="700">
+              <div class="card-body">
+                <h5 class="card-title">Sterith P Roach</h5>
+                <p class="card-text text-muted">32022896020</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    {% endblock %}
+
+    <footer class="bg-dark text-white pt-4 shadow-lg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h4><i class="fas fa-swimmer"></i> DeepSeaView</h4>
+            <small>Made with <i class="fas fa-heart"></i></small>
+          </div>
+          <div class="col-md-4 text-center">
+          </div>
+          <div class="col-md-4 text-center">
+            <a href="{% url 'upload' %}" class="btn btn-primary">Get Started <i class="fas fa-rocket"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/typed.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script>
+let backToTopButton = document.getElementById("backToTop");
+window.onscroll = function () {
+  if (document.documentElement.scrollTop > 100) {
+       backToTopButton.style.display = "block";
+  } else {
+       backToTopButton.style.display = "none";
+  }
+};
+backToTopButton.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+      AOS.init();
+      window.addEventListener("scroll", function () {
+        let text = document.getElementById("scrollText");
+        if (window.scrollY > 90) {text.classList.remove("text-white");text.classList.add("text-dark");}
+        else{text.classList.remove("text-dark");text.classList.add("text-white");}
+      })
+      $(document).ready(function() {
+    $('.popup-image').magnificPopup({
+        type: 'image',
+        gallery: {
+            enabled: true
+        }
+      });
+  });
+    </script>
+  </body>
+</html>
